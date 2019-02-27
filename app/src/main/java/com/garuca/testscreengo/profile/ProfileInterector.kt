@@ -1,26 +1,17 @@
-package com.garuca.testscreengo
+package com.garuca.testscreengo.profile
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.util.Log
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.garuca.testscreengo.profile.*
-import com.garuca.testscreengo.profile.model.Panel
+import com.garuca.testscreengo.profile.ProfileContracts
 import com.garuca.testscreengo.profile.model.Profile
-import com.garuca.testscreengo.profile.model.Screenshot
 import com.garuca.testscreengo.profile.ui.PanelsAdapter
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_profile.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-/*image_left.clipToOutline = true
-image_right.clipToOutline = true*/
+class ProfileInterector(private val interectorOutput: ProfileContracts.InterectorOutput):ProfileContracts.InterectorInput {
+    override fun getAllProfileInformation() {
         val profileAPI: ProfileAPI = RetrofitInitializer()
             .getProfileAPI()
         val call: Call<Profile> =profileAPI.get(23)
@@ -30,6 +21,8 @@ image_right.clipToOutline = true*/
                 val profile = response.body()
                 when (code) {
                     200 -> {
+                        Log.e("User",profile?.user?.screenshots!!.screenshots[0].name)
+                        interectorOutput.setAllProfileInformation(profile.user)
 
 
 
@@ -44,5 +37,6 @@ image_right.clipToOutline = true*/
 
         })
     }
+
 
 }

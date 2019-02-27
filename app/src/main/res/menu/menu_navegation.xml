@@ -3,13 +3,13 @@
 
     <item
             android:id="@+id/navigation_songs"
-            android:icon="@android:drawable/ic_delete"
-            android:title="Songs"/>
+            android:icon="@drawable/ic_outline_my_location_24px"
+            android:title="SPOTS"/>
 
     <item
             android:id="@+id/navigation_albums"
-            android:icon="@android:drawable/ic_delete"
-            android:title="Albums"/>
+            android:icon="@drawable/ic_outline_insert_photo_24px"
+            android:title="GALERIA"/>
 
 
 </menu>
