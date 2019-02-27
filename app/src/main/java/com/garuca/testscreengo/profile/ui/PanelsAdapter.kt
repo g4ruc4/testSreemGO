@@ -32,12 +32,12 @@ class PanelsAdapter(private val panels : List<Panel>, private val context: Conte
             Glide.with(context).load(panel.screenshots[0].image.url)
                 .centerCrop()
                 .into(holder.image_left)
-                .onLoadFailed(context.getDrawable(R.drawable.iron))
+
         if (panel.screenshots.size>1) {
             Glide.with(context).load(panel.screenshots[1].image.url)
                 .centerCrop()
                 .into(holder.image_center)
-                .onLoadFailed(context.getDrawable(R.drawable.iron))
+
         }else{
             Glide.with(context).clear(holder.image_center)
             holder.image_center.setImageDrawable(null)
@@ -46,7 +46,7 @@ class PanelsAdapter(private val panels : List<Panel>, private val context: Conte
             Glide.with(context).load(panel.screenshots[2].image.url)
                 .centerCrop()
                 .into(holder.image_right)
-                .onLoadFailed(context.getDrawable(R.drawable.iron))
+
         }else{
             Glide.with(context).clear(holder.image_right)
             holder.image_right.setImageDrawable(null)

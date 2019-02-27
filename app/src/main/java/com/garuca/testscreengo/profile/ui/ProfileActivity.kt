@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.garuca.testscreengo.R
 import com.garuca.testscreengo.profile.*
 import com.garuca.testscreengo.profile.model.Panel
@@ -45,7 +46,11 @@ class ProfileActivity : AppCompatActivity(),ProfileContracts.PresenterOutput{
     }
 
     override fun setUser(user: User) {
-
+        text_view_name.text = user.name
+        Glide.with(this).load(user.image.url)
+            .centerCrop()
+            .into(profile_image)
+            .onLoadFailed(this@ProfileActivity.getDrawable(R.drawable.iron))
 
     }
     override fun setPanels(panels: List<Panel>) {
