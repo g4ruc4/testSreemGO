@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.garuca.testscreengo.R
 import com.garuca.testscreengo.profile.*
@@ -56,7 +57,7 @@ class ProfileActivity : AppCompatActivity(),ProfileContracts.PresenterOutput{
     override fun setPanels(panels: List<Panel>) {
         runOnUiThread {
             val manager = LinearLayoutManager(this@ProfileActivity)
-            recycler_view.layoutManager = manager
+            recycler_view.layoutManager = manager as RecyclerView.LayoutManager?
             val adapter  = PanelsAdapter(panels,this@ProfileActivity)
             recycler_view.adapter = adapter
             adapter.notifyDataSetChanged()

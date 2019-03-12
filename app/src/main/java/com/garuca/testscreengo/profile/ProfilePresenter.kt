@@ -7,14 +7,15 @@ import com.garuca.testscreengo.profile.model.User
 
 class ProfilePresenter(private val registerPresenterOutput: ProfileContracts.PresenterOutput):ProfileContracts.PresenterInput,ProfileContracts.InterectorOutput{
      override fun setAllProfileInformation(user: User) {
-        registerPresenterOutput.setPanels(splitPanels(user.screenshots.screenshots))
+          registerPresenterOutput.setPanels(splitPanels(user.screenshots.screenshots))
+          registerPresenterOutput.setUser(user=user)
      }
 
      var registerInterectorInput: ProfileContracts.InterectorInput = ProfileInterector(this)
      override fun loadData() {
           registerInterectorInput.getAllProfileInformation()
      }
-     fun splitPanels(screenshots:Array<Screenshot>):MutableList<Panel>{
+     private fun splitPanels(screenshots:Array<Screenshot>):MutableList<Panel>{
           val panels : MutableList<Panel> = ArrayList()
           for (screenshot: Screenshot in screenshots){
 
@@ -37,7 +38,7 @@ class ProfilePresenter(private val registerPresenterOutput: ProfileContracts.Pre
           }
           return panels
      }
-     fun sum(i:Int): Int {
+     private fun sum(i:Int): Int {
           return i+1
      }
 

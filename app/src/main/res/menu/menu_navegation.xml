@@ -2,12 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-            android:id="@+id/navigation_songs"
             android:icon="@drawable/ic_outline_my_location_24px"
             android:title="SPOTS"/>
 
     <item
-            android:id="@+id/navigation_albums"
             android:icon="@drawable/ic_outline_insert_photo_24px"
             android:title="GALERIA"/>
 

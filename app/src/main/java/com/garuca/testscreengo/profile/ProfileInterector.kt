@@ -31,7 +31,7 @@ class ProfileInterector(private val interectorOutput: ProfileContracts.Interecto
                 }
             }
             override fun onFailure(call: Call<Profile>, t: Throwable) {
-
+                Log.e("error",t.message)
             }
 
 

@@ -19,8 +19,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-/*image_left.clipToOutline = true
-image_right.clipToOutline = true*/
         val profileAPI: ProfileAPI = RetrofitInitializer()
             .getProfileAPI()
         val call: Call<Profile> =profileAPI.get(23)
